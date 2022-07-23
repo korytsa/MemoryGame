@@ -15,7 +15,7 @@ header{
     box-shadow: 0px 10px 20px rgba(89, 8, 16, 0.78);
 }
 h1{
-    font-size: 42px;
+    font-size: 38px;
     line-height: 9vh;  
     text-align: center;
 }
@@ -30,7 +30,7 @@ footer{
     box-shadow: 0px -10px 20px rgba(89, 8, 16, 0.78);
 }
 footer p{
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
     line-height: 7vh;
 }
