@@ -54,12 +54,12 @@ main{
     transition: 0.5s;
 }
 .content_userName:hover{
-    border: 4mm ridge #4a0003;
-    box-shadow: none;
-}
-.content_userName:focus{
     border: 4mm ridge #2c0002;
     box-shadow: 0px 0px 15px 1px rgba(89, 8, 16, 0.9);
+}
+.content_userName:focus{
+    border: 4mm ridge #4a0003;
+    box-shadow: none;
 }
 .content_btnPlay{
     background: radial-gradient(89.19% 192.84% at 50% 100%, #330002 0%, #700306 100%);
