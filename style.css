@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Allerta Stencil', sans-serif;
+    color: #D1D1D1;
+    cursor: default;
+}
+body{
+    background: url(./images/bcg.png) center/cover no-repeat;
+}
+header{
+    width: 100%;
+    height: 9vh;
+    background: #16151A;
+    box-shadow: 0px 10px 20px rgba(89, 8, 16, 0.78);
+}
+h1{
+    font-size: 38px;
+    line-height: 9vh;  
+    text-align: center;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 84vh;
+    
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 693px;
+    height: 357px;
+}
+.content_nickname{
+    font-size: 48px;
+}
+.content_userName{
+    background: rgba(22, 21, 26, 0.67);
+    box-shadow: 0px 0px 15px 2px rgba(89, 8, 16, 0.9);
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+    width: 60%;
+    padding: 2% 3%;
+    font-size: 36px;
+    margin-top: 4%;
+    cursor: text;
+    border: 4mm ridge #3B0002;
+    transition: 0.5s;
+}
+.content_userName:hover{
+    border: 4mm ridge #2c0002;
+    box-shadow: 0px 0px 15px 1px rgba(89, 8, 16, 0.9);
+}
+.content_userName:focus{
+    border: 4mm ridge #4a0003;
+    box-shadow: none;
+}
+.content_btnPlay{
+    background: radial-gradient(89.19% 192.84% at 50% 100%, #330002 0%, #700306 100%);
+    border: none;
+    outline: none;
+    font-size: 36px;
+    padding: 1% 15%;
+    border-radius: 36px;
+    margin-top: 6%;
+    cursor: pointer;
+    transition: 0.6s;
+}
+.content_btnPlay:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.8);
+    background: radial-gradient(89.19% 192.84% at 50% 100%, #2c0002 0%, #600205 100%);
+}
+.content_btnPlay:active{
+    background: radial-gradient(89.19% 192.84% at 50% 100%, #330002 0%, #700306 100%);
+}
+footer{
+    width: 100%;
+    height: 7vh;
+    background: #16151A;
+    box-shadow: 0px -10px 20px rgba(89, 8, 16, 0.78);
+}
+footer p{
+    font-size: 20px;
+    text-align: center;
+    line-height: 7vh;
+}
+@media screen and (max-width: 760px){
+    h1{
+        font-size: 32px;
+        line-height: 9vh;  
+        text-align: center;
+    }
+    .content_nickname{
+        font-size: 36px;
+    }
+    .content_userName{
+        font-size: 30px;
+        width: 75%;
+    }
+    .content_btnPlay{
+        font-size: 30px;
+        padding: 1% 13%;
+    }
+    footer p{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 415px){
+    h1{
+        font-size: 28px;
+        line-height: 9vh;  
+        text-align: center;
+    }
+    .content_nickname{
+        font-size: 27px;
+    }
+    .content_userName{
+        font-size: 26px;
+        width: 90%;
+    }
+    .content_btnPlay{
+        font-size: 26px;
+        padding: 1% 13%;
+    }
+    footer{
+        background-color: #16151A;
+        height: 10vh;
+    }
+    footer p{
+        font-size: 18px;
+        line-height: 5vh;
+        margin: 1%;
+    }
+}
