@@ -91,3 +91,51 @@ footer p{
     text-align: center;
     line-height: 7vh;
 }
+@media screen and (max-width: 760px){
+    h1{
+        font-size: 32px;
+        line-height: 9vh;  
+        text-align: center;
+    }
+    .content_nickname{
+        font-size: 36px;
+    }
+    .content_userName{
+        font-size: 30px;
+        width: 75%;
+    }
+    .content_btnPlay{
+        font-size: 30px;
+        padding: 1% 13%;
+    }
+    footer p{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 415px){
+    h1{
+        font-size: 28px;
+        line-height: 9vh;  
+        text-align: center;
+    }
+    .content_nickname{
+        font-size: 27px;
+    }
+    .content_userName{
+        font-size: 26px;
+        width: 90%;
+    }
+    .content_btnPlay{
+        font-size: 26px;
+        padding: 1% 13%;
+    }
+    footer{
+        background-color: #16151A;
+        height: 10vh;
+    }
+    footer p{
+        font-size: 18px;
+        line-height: 5vh;
+        margin: 1%;
+    }
+}
