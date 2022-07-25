@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         timer: document.querySelector('.controls__timer-current'),
         start: document.querySelector('content_btnPlay'),
     }
-    
+
     const state = {
         gameStarted: false,
         flippedCards: 0,
@@ -49,16 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'images/card-img/react.png'
         }
     ];
-    
+
     //создаем копию массива 
     const cloneCardArray = [...cardArray];
-    
-    
+
+
     // сортируем массив в случайном порядке
-    cardArray.sort(function () {
-        return 0.5 - Math.random()
-    });
-    
+    const sortArray = (arr) => {
+        arr.sort(function () {
+            return 0.5 - Math.random()
+        });
+    }
+
+
     //создаем игровое поле
     const gameBoard = (arr) => {
         for (i = 0; i < arr.length; i++) {
@@ -66,12 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.classList.add('card');
             selectors.gameBox.appendChild(card).innerHTML = `
-                       <div class="card__front"></div>
-                       <div class="card__back"><img class="card__img" src="${img}"></div>
-                `   
+                       <div class="card__front"><div class="card__img-box"></div></div>
+                       <div class="card__back"><div class="card__img-box"><img class="card__img" src="${img}"></div></div>
+                `
         }
     };
-    
+
+
+
+
+    sortArray(cardArray);
+    sortArray(cloneCardArray);
     gameBoard(cardArray);
     gameBoard(cloneCardArray);
 })

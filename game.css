@@ -55,7 +55,8 @@ h1 {
 .game__box {
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, minmax(min(100%, 140px), 1fr));
+    grid-template-rows: repeat(4, minmax(min(100%, 140px), 1fr));
     grid-gap: 15px;
 }
 
@@ -65,7 +66,8 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer; 
+    cursor: pointer;
+    position: relative;
     transition: transform .6s cubic-bezier(0.5, 0.1, 0.3, 1);
     background: linear-gradient(180deg, #330002 0%, #700306 100%);
 }
@@ -74,9 +76,14 @@ h1 {
     transform: rotateY(180deg) rotateZ(360deg);
 }
 
+.card__img-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .card__img {
     margin: 15px;
-    object-fit: cover;
 }
 
 .card__back,
@@ -94,26 +101,71 @@ h1 {
 } */
 
 
-/* @media screen and (max-width: 1080px) {
+@media screen and (max-width: 1080px) {
     .controls {
         font-size: 28px;
     }
 }
 
 @media screen and (max-width: 680px) {
+    h1 {
+        font-size: 32px;
+    }
+
     .controls {
         font-size: 22px;
     }
+
     .controls span {
         display: block;
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    .game__box {
+        grid-template-columns: repeat(4, minmax(min(100%, 100px), 1fr));
+        grid-template-rows: repeat(4, minmax(min(100%, 100px), 1fr));
+        grid-gap: 10px;
+    }
+
+    .card {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card__img {
+        margin: 10px;
+        width: 80px;
+        height: 80px;
     }
 }
 
 @media screen and (max-width: 415px) {
+    .controls__container {
+        padding: 0 10px;
+    }
+
     .game {
         padding: 35px 0;
     }
+
     .controls {
-        font-size: 20px;
+        font-size: 18px;
     }
-} */
+
+    .game__box {
+        grid-template-columns: repeat(4, minmax(min(100%, 65px), 1fr));
+        grid-template-rows: repeat(4, minmax(min(100%, 65px), 1fr));
+        grid-gap: 10px;
+    }
+
+    .card {
+        width: 65px;
+        height: 65px;
+    }
+
+    .card__img {
+        width: 45px;
+        height: 45px;
+    }
+}
