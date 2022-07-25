@@ -34,11 +34,11 @@ footer p{
 @media screen and (max-width: 415px){
     footer{
         background-color: #16151A;
-        height: 10vh;
+        height: 5vh;
     }
     footer p{
-        font-size: 18px;
-        line-height: 5vh;
+        font-size: 14px;
+        line-height: 4vh;
         margin: 1%;
     }
 }
