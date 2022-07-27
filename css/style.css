@@ -7,7 +7,7 @@
     cursor: default;
 }
 body{
-    background: url(./images/bcg.png) center/cover no-repeat;
+    background: url(../images/bcg.png) center/cover no-repeat;
 }
 header{
     width: 100%;
