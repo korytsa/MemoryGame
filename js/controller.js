@@ -5,6 +5,7 @@ class Controller {
     }
     init() {
         this.view.gameBoard(this.model.sortArray());
+        this.model.toggleCard();
     }
 
 }
