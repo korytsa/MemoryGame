@@ -10,13 +10,16 @@ class View {
     gameBoard(arr) {
         for (let i = 0; i < arr.length; i++) {
             const img = arr[i].img;
+            const imgBack = arr[i].imgBack;
             const card = document.createElement('div');
             card.classList.add('card');
             this.gameBox.appendChild(card).innerHTML = `
-                       <div class="card__front"><div class="card__img-box"></div></div>
-                       <div class="card__back"><div class="card__img-box"><img class="card__img" src="${img}"></div></div>
+                       <div class="card__back"><div class="card__img-box card__img-boxback"><img class="card__img-back" src="${imgBack}"></div></div>
+                       <div class="card__front hidden"><div class="card__img-box card__img-boxfront"><img class="card__img" src="${img}"></div></div>
                 `
         }
     };
 
+
+   
 }
