@@ -14,8 +14,8 @@ class View {
             const card = document.createElement('div');
             card.classList.add('card');
             this.gameBox.appendChild(card).innerHTML = `
-                       <div class="card__back"><div class="card__img-box card__img-boxback"><img class="card__img-back" src="${imgBack}"></div></div>
-                       <div class="card__front hidden"><div class="card__img-box card__img-boxfront"><img class="card__img" src="${img}"></div></div>
+                       <img class="card__face card__face--front" src="${imgBack}">
+                       <img class="card__face card__face--back" src="${img}">
                 `
         }
     };
