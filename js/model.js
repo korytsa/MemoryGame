@@ -3,51 +3,66 @@ class Model {
         // создаем массив обьектов
         this.cardArray = [{
                 name: '2',
-                img: 'images/card-img/2.png',
+                img: 'images/card-img/swiftALL.png',
                 imgBack: 'images/card-bg.png',
                 id: 1,
+                flip: false,
             },
             {
                 name: 'cc',
-                img: 'images/card-img/cc.png',
+                img: 'images/card-img/c++ALL.png',
                 imgBack: 'images/card-bg.png',
                 id: 2,
+                flip: false,
+
             },
             {
                 name: 'java',
-                img: 'images/card-img/java.png',
+                img: 'images/card-img/javaALL.png',
                 imgBack: 'images/card-bg.png',
                 id: 3,
+                flip: false,
+
             },
             {
                 name: 'phyton',
-                img: 'images/card-img/phyton.png',
+                img: 'images/card-img/pythonALL.png',
                 imgBack: 'images/card-bg.png',
                 id: 4,
+                flip: false,
+
             },
             {
                 name: 'php',
-                img: 'images/card-img/php.png',
+                img: 'images/card-img/phpALL.jpeg',
                 imgBack: 'images/card-bg.png',
                 id: 5,
+                flip: false,
+
             },
             {
                 name: 'sql',
-                img: 'images/card-img/sql.png',
+                img: 'images/card-img/SqlALL.png',
                 imgBack: 'images/card-bg.png',
                 id: 6,
+                flip: false,
+
             },
             {
                 name: 'sass',
-                img: 'images/card-img/sass.png',
+                img: 'images/card-img/sassALL.png',
                 imgBack: 'images/card-bg.png',
                 id: 7,
+                flip: false,
+
             },
             {
                 name: 'react',
-                img: 'images/card-img/react.png',
+                img: 'images/card-img/REACTALL.png',
                 imgBack: 'images/card-bg.png',
                 id: 8,
+                flip: false,
+
             }
         ];
     }
@@ -66,23 +81,11 @@ class Model {
     }
 
     toggleCard() {
-        const card = document.querySelectorAll('.card');
-        const cardBack = document.querySelector('.card__back');
-        const cardFront = document.querySelector('.card__front');
-        console.log(card)
-        card.forEach((item) => {
-            item.addEventListener('click', function () {
-                if (cardFront.classList.contains('hidden')) {
-                    cardBack.classList.add('hidden');
-                    cardFront.classList.remove('hidden');
-                } else {
-                    cardBack.classList.remove('hidden');
-                    cardFront.classList.add('hidden');
-                }
-            })
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card) => {
+            card.addEventListener('click', function () {
+                card.classList.toggle('is-flipped');
+            });
         })
-
     }
-
-
 }
