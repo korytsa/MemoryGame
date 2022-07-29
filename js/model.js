@@ -2,7 +2,7 @@ class Model {
     constructor() {
         // создаем массив обьектов
         this.cardArray = [{
-                name: '2',
+                name: 'swift',
                 img: 'images/card-img/swiftALL.png',
                 imgBack: 'images/card-bg.png',
                 id: 1,
@@ -25,7 +25,7 @@ class Model {
 
             },
             {
-                name: 'phyton',
+                name: 'python',
                 img: 'images/card-img/pythonALL.png',
                 imgBack: 'images/card-bg.png',
                 id: 4,
@@ -74,18 +74,24 @@ class Model {
         const allCards = this.cardArray.concat(cloneCardArray);
 
         // сортируем массив в случайном порядке
-
         return allCards.sort(function () {
             return 0.5 - Math.random()
         });
     }
 
     toggleCard() {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card) => {
-            card.addEventListener('click', function () {
-                card.classList.toggle('is-flipped');
-            });
-        })
+        const gameBox = document.querySelector('.game__box');
+
+        gameBox.addEventListener('click', function (event) {
+            let e = event.target.parentElement;
+            if(e.dataset.name === "card" ){
+                e.classList.toggle('is-flipped');
+            }
+        });
+    }
+    getMatch() {
+        const gameBox = document.querySelector('.game__box');
+        
+        
     }
 }
