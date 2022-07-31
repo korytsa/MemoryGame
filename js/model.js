@@ -117,4 +117,18 @@ class Model {
             })
         })
     }
+    getTime(){
+        let time = document.querySelector('.controls__timer-current');
+        let secondsGame = 0;
+        let minutesGame = `0${0}`;
+
+        setInterval(() => {
+            secondsGame < 9? secondsGame = `0${++secondsGame}` : secondsGame = `${++secondsGame}`;
+            if(secondsGame > 59){
+                minutesGame < 9 ?  minutesGame = `0${++minutesGame}` :  minutesGame = `${++minutesGame}`;
+                secondsGame = `0${0}`;
+            }
+            time.textContent = `${minutesGame}:${secondsGame}`;
+        }, 1000);
+    }
 }

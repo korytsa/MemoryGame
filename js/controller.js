@@ -8,5 +8,7 @@ class Controller {
         this.model.toggleCard();
         this.model.getMatch();
         this.model.getMoves();
+        this.model.getTime();
+
     }
 }
