@@ -86,12 +86,23 @@ class Model {
             let e = event.target.parentElement;
             if(e.dataset.name === "card" ){
                 e.classList.toggle('is-flipped');
+                // console.log(e.classList)
             }
-        });
+        })
     }
     getMatch() {
         const gameBox = document.querySelector('.game__box');
-        
-        
+
+        gameBox.addEventListener('click', function (event) {
+            let cardId = event.target.parentElement.dataset.id;
+            
+            console.log(`second ${cardId}`);
+
+            // if(firstCard === secondCard ){
+                // console.log('match')
+                // firstCard.removeEventListener('click', this.toggleCard);
+                // secondCard.removeEventListener('click', this.toggleCard);
+            // }
+        });
     }
 }
