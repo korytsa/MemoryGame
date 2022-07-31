@@ -2,7 +2,7 @@ class Model {
     constructor() {
         // создаем массив обьектов
         this.cardArray = [{
-                name: '2',
+                name: 'swift',
                 img: 'images/card-img/swiftALL.png',
                 imgBack: 'images/card-bg.png',
                 id: 1,
@@ -25,7 +25,7 @@ class Model {
 
             },
             {
-                name: 'phyton',
+                name: 'python',
                 img: 'images/card-img/pythonALL.png',
                 imgBack: 'images/card-bg.png',
                 id: 4,
@@ -74,18 +74,61 @@ class Model {
         const allCards = this.cardArray.concat(cloneCardArray);
 
         // сортируем массив в случайном порядке
-
         return allCards.sort(function () {
             return 0.5 - Math.random()
         });
     }
 
     toggleCard() {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card) => {
-            card.addEventListener('click', function () {
-                card.classList.toggle('is-flipped');
-            });
+        const gameBox = document.querySelector('.game__box');
+
+        gameBox.addEventListener('click', function (event) {
+            let e = event.target.parentElement;
+            if(e.dataset.name === "card" ){
+                e.classList.toggle('is-flipped');
+                // console.log(e.classList)
+            }
         })
+    }
+    getMatch() {
+        const gameBox = document.querySelector('.game__box');
+
+        gameBox.addEventListener('click', function (event) {
+            let cardId = event.target.parentElement.dataset.id;
+            
+            console.log(`second ${cardId}`);
+
+            // if(firstCard === secondCard ){
+                // console.log('match')
+                // firstCard.removeEventListener('click', this.toggleCard);
+                // secondCard.removeEventListener('click', this.toggleCard);
+            // }
+        });
+    }
+    getMoves(){
+        let moves = document.querySelector('.controls__moves-current');
+        let cards = document.querySelectorAll('.card');
+        let count = 1;
+
+        cards.forEach((card) => {
+            card.addEventListener('click', function() {
+                moves.innerText = count;
+                count++;
+            })
+        })
+    }
+    getTime(){
+        let time = document.querySelector('.controls__timer-current');
+        let secondsGame = 0;
+        let minutesGame = `0${0}`;
+
+        setInterval(() => {
+            secondsGame < 9? secondsGame = `0${++secondsGame}` : secondsGame = `${++secondsGame}`;
+            if(secondsGame > 59){
+                minutesGame < 9 ?  minutesGame = `0${++minutesGame}` :  minutesGame = `${++minutesGame}`;
+                secondsGame = `0${0}`;
+            }
+            time.textContent = `${minutesGame}:${secondsGame}`;
+        }, 1000);
     }
 }
