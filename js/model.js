@@ -105,4 +105,16 @@ class Model {
             // }
         });
     }
+    getMoves(){
+        let moves = document.querySelector('.controls__moves-current');
+        let cards = document.querySelectorAll('.card');
+        let count = 1;
+
+        cards.forEach((card) => {
+            card.addEventListener('click', function() {
+                moves.innerText = count;
+                count++;
+            })
+        })
+    }
 }
