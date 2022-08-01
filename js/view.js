@@ -37,12 +37,12 @@ class View {
         });
     };
     //загрузка игрового поля
-    gameplay() {
-        window.onload = () => {
-            const playerName = localStorage.getItem("player");
-            this.spanPlayer.innerHTML = playerName;
-            // getTime();
-            // gameBoard();
-        };
-    }
+    // gameplay() {
+    //     window.onload = () => {
+    //         const playerName = localStorage.getItem("player");
+    //         this.spanPlayer.innerHTML = playerName;
+    //         // this.model.getTime();
+    //         // this.gameBoard();
+    //     };
+    // }
 }

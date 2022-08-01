@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
     <script src="./js/controller.js" defer></script>
     <script src="./js/app.js" defer></script>
 </head>
+
 <body>
     <header>
         <h1>Memory Game</h1>
@@ -20,15 +22,20 @@
     <main>
         <div class="content">
             <form action="" class="form">
-            <label class="content_nickname">Enter your nickname:
-            <input type="text" class="content_userName" required minlength="3" maxlength="10" placeholder="NICKNAME">
-            <button type="submit" class="content_btnPlay" disabled>Play</button>
-        </form>
-        </label>
+                <label class="content_nickname">Enter your nickname:
+                    <input type="text" class="content_userName" required minlength="3" maxlength="15"
+                        placeholder="NICKNAME">
+                    <div class="btn__box">
+                        <button type="submit" class="content_btnPlay" id="nickname" disabled>Play</button>
+                        <button type="submit" class="content_btnPlay" id="randomUser">Get NICK</button>
+                    </div>
+            </form>
+            </label>
         </div>
     </main>
     <footer>
         <p>created by Anni, Pavel, Alexander, Evgeniy</p>
     </footer>
 </body>
+
 </html>
