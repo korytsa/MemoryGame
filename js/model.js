@@ -84,7 +84,7 @@ class Model {
 
         gameBox.addEventListener('click', function (event) {
             let e = event.target.parentElement;
-            if(e.dataset.name === "card" ){
+            if (e.dataset.name === "card") {
                 e.classList.toggle('is-flipped');
                 // console.log(e.classList)
             }
@@ -95,40 +95,73 @@ class Model {
 
         gameBox.addEventListener('click', function (event) {
             let cardId = event.target.parentElement.dataset.id;
-            
+
             console.log(`second ${cardId}`);
 
             // if(firstCard === secondCard ){
-                // console.log('match')
-                // firstCard.removeEventListener('click', this.toggleCard);
-                // secondCard.removeEventListener('click', this.toggleCard);
+            // console.log('match')
+            // firstCard.removeEventListener('click', this.toggleCard);
+            // secondCard.removeEventListener('click', this.toggleCard);
             // }
         });
     }
-    getMoves(){
+    getMoves() {
         let moves = document.querySelector('.controls__moves-current');
         let cards = document.querySelectorAll('.card');
         let count = 1;
 
         cards.forEach((card) => {
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function () {
                 moves.innerText = count;
                 count++;
             })
         })
     }
-    getTime(){
+    getTime() {
         let time = document.querySelector('.controls__timer-current');
         let secondsGame = 0;
         let minutesGame = `0${0}`;
 
         setInterval(() => {
-            secondsGame < 9? secondsGame = `0${++secondsGame}` : secondsGame = `${++secondsGame}`;
-            if(secondsGame > 59){
-                minutesGame < 9 ?  minutesGame = `0${++minutesGame}` :  minutesGame = `${++minutesGame}`;
+            secondsGame < 9 ? secondsGame = `0${++secondsGame}` : secondsGame = `${++secondsGame}`;
+            if (secondsGame > 59) {
+                minutesGame < 9 ? minutesGame = `0${++minutesGame}` : minutesGame = `${++minutesGame}`;
                 secondsGame = `0${0}`;
             }
             time.textContent = `${minutesGame}:${secondsGame}`;
         }, 1000);
     }
+
+    // валидация
+    // validation() {
+    //     const input = document.querySelector(".content_userName");
+    //     const button = document.querySelector(".content_btnPlay");
+
+    //     const validInput = ({
+    //         target
+    //     }) => {
+    //         if (target.value.length > 2 && target.value.length < 10) {
+    //             button.removeAttribute('disabled');
+    //             return
+    //         }
+
+    //         button.setAttribute("disabled", "");
+
+    //         input.addEventListener("input", validInput);
+    //     };
+    // }
+
+
+//     getName() {
+//         const form = document.querySelector(".form");
+
+//         const handleSubmit = (event) => {
+//             event.preventDefault();
+//             localStorage.setItem("player", input.value);
+//             window.location = "./game.html";
+//         };
+    
+//         form.addEventListener("submit", handleSubmit);
+//     }
+    
 }
