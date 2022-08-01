@@ -59,6 +59,7 @@ h1 {
     grid-template-rows: repeat(4, minmax(min(100%, 140px), 1fr));
     grid-gap: 15px;
 }
+
 .card {
     position: relative;
     width: 140px;
@@ -66,27 +67,25 @@ h1 {
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform 1s;
-  }
-  .card.is-flipped {
+}
+
+.card.is-flipped {
     width: 140px;
     height: 140px;
-    transform:  rotateY(-180deg);
-  }
-  .card__face {
+    transform: rotateY(-180deg);
+}
+
+.card__face {
     position: absolute;
     width: 140px;
     height: 140px;
     backface-visibility: hidden;
-  }
-  .card__face--front {
-    width: 140px;
-    height: 140px;
-  }
-  .card__face--back {
+}
+
+.card__face--back {
     transform: rotateY(180deg);
-    width: 140px;
-    height: 140px;
-  }
+}
+
 @media screen and (max-width: 1080px) {
     .controls {
         font-size: 28px;
@@ -114,16 +113,13 @@ h1 {
         grid-gap: 10px;
     }
 
-    .card {
+    .card,
+    .card.is-flipped,
+    .card__face {
         width: 100px;
         height: 100px;
     }
 
-    .card__img {
-        margin: 10px;
-        width: 80px;
-        height: 80px;
-    }
 }
 
 @media screen and (max-width: 415px) {
@@ -145,13 +141,11 @@ h1 {
         grid-gap: 10px;
     }
 
-    .card {
+    .card,
+    .card.is-flipped,
+    .card__face {
         width: 65px;
         height: 65px;
     }
 
-    .card__img {
-        width: 45px;
-        height: 45px;
-    }
 }
