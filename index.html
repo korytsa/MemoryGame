@@ -5,9 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MemoryGame</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/index.css">
     <link rel="shortcut icon" href="./images/favicon.svg" type="image/x-icon">
+    <script src="./js/view.js" defer></script>
+    <script src="./js/model.js" defer></script>
+    <script src="./js/controller.js" defer></script>
+    <script src="./js/app.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,9 +19,12 @@
     </header>
     <main>
         <div class="content">
-            <h2 class="content_nickname">Enter your nickname:</h2>
-            <input type="text" class="content_userName">
-            <button class="content_btnPlay">Play</button>
+            <form action="" class="form">
+            <label class="content_nickname">Enter your nickname:
+            <input type="text" class="content_userName" required minlength="3" maxlength="10" placeholder="NICKNAME">
+            <button type="submit" class="content_btnPlay" disabled>Play</button>
+        </form>
+        </label>
         </div>
     </main>
     <footer>

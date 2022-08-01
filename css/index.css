@@ -21,6 +21,10 @@ main {
     height: 357px;
 }
 
+.form {
+    text-align: center;
+}
+
 .content_nickname {
     font-size: 48px;
 }
@@ -62,7 +66,11 @@ main {
     transition: 0.6s;
 }
 
-.content_btnPlay:hover {
+.content_btnPlay:disabled {
+    background: radial-gradient(89.19% 192.84% at 50% 100%, #474344 0%, #585555 100%);
+}
+
+/* .content_btnPlay:hover {
     transform: scale(1.01);
     box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.8);
     background: radial-gradient(89.19% 192.84% at 50% 100%, #2c0002 0%, #600205 100%);
@@ -70,7 +78,7 @@ main {
 
 .content_btnPlay:active {
     background: radial-gradient(89.19% 192.84% at 50% 100%, #330002 0%, #700306 100%);
-}
+} */
 
 @media screen and (max-width: 760px) {
     h1 {

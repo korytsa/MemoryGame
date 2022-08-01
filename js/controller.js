@@ -4,6 +4,7 @@ class Controller {
         this.view = view;
     }
     init() {
+        // this.view.gameplay();
         this.view.gameBoard(this.model.sortArray());
         this.model.toggleCard();
         this.model.getMatch();
