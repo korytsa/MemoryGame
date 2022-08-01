@@ -1,4 +1,4 @@
-class Model {
+export default class Model {
     constructor() {
         // создаем массив обьектов
         this.cardArray = [{
@@ -95,8 +95,11 @@ class Model {
 
         gameBox.addEventListener('click', function (event) {
             let cardId = event.target.parentElement.dataset.id;
-            
-            console.log(`second ${cardId}`);
+            let arrId = [];
+            if(arrId.length <= 2 ){
+                arrId.push(cardId)
+            }
+            console.log(` ${arrId}`);
 
             // if(firstCard === secondCard ){
                 // console.log('match')

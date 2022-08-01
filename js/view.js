@@ -1,4 +1,4 @@
-class View {
+export default class View {
     constructor() {
         this.gameContainer = document.querySelector('.game__container');
         this.gameBox = document.querySelector('.game__box');
