@@ -65,6 +65,9 @@ export default class Model {
 
             }
         ];
+        this.firstCardId = 0;
+        this.secondCardId = 0;
+        this.firstCard;
     }
     sortArray() {
         //создаем копию массива 
@@ -92,20 +95,26 @@ export default class Model {
     }
     getMatch() {
         const gameBox = document.querySelector('.game__box');
-
+        
         gameBox.addEventListener('click', function (event) {
-            let cardId = event.target.parentElement.dataset.id;
-            let arrId = [];
-            if(arrId.length <= 2 ){
-                arrId.push(cardId)
-            }
-            console.log(` ${arrId}`);
+            console.log(`first ${this.firstCard} second ${event.target.parentElement.classList}`);
 
-            // if(firstCard === secondCard ){
-            // console.log('match')
-            // firstCard.removeEventListener('click', this.toggleCard);
-            // secondCard.removeEventListener('click', this.toggleCard);
-            // }
+            if (this.firstCardId){
+                if(this.firstCardId === this.secondCardId){
+                    console.log('f')
+
+                    this.firstCard.removeAttribute('date-name');
+                    event.target.parentElement.classList.removeAttribute('date-name');
+                }else{
+                    this.firstCardId = 0;
+                    this.secondCardId = 0;
+                    this.firstCard.remove('is-flipped');
+                    event.target.parentElement.classList.remove('is-flipped')
+                }
+                return this.secondCardId = event.target.parentElement.dataset.id;
+            }
+            this.firstCardId = event.target.parentElement.dataset.id;
+            this.firstCard = event.target.parentElement.classList;
         });
     }
     getMoves() {
