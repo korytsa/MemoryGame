@@ -4,14 +4,13 @@ export default class Controller {
         this.view = view;
     }
     init() {
-        // this.view.gameplay(this.view.gameBoard());
-        // this.model.validation();
-        // this.model.getName();
-        this.view.gameBoard(this.model.sortArray());
+        this.view.gameplay(this.view.gameBoard(this.model.sortArray()), this.model.getMoves(), this.model.getTime());
         this.model.toggleCard();
         this.model.getMatch();
-        this.model.getMoves();
-        this.model.getTime();
-
+        // this.model.validation();
+        // this.model.getName();
+        // this.view.gameBoard(this.model.sortArray());
+        // this.model.getMoves();
+        // this.model.getTime();
     }
 }
