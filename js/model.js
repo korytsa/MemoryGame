@@ -131,37 +131,4 @@ class Model {
             time.textContent = `${minutesGame}:${secondsGame}`;
         }, 1000);
     }
-
-    // валидация
-    // validation() {
-    //     const input = document.querySelector(".content_userName");
-    //     const button = document.querySelector(".content_btnPlay");
-
-    //     const validInput = ({
-    //         target
-    //     }) => {
-    //         if (target.value.length > 2 && target.value.length < 10) {
-    //             button.removeAttribute('disabled');
-    //             return
-    //         }
-
-    //         button.setAttribute("disabled", "");
-
-    //         input.addEventListener("input", validInput);
-    //     };
-    // }
-
-
-//     getName() {
-//         const form = document.querySelector(".form");
-
-//         const handleSubmit = (event) => {
-//             event.preventDefault();
-//             localStorage.setItem("player", input.value);
-//             window.location = "./game.html";
-//         };
-    
-//         form.addEventListener("submit", handleSubmit);
-//     }
-    
 }
