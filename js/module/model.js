@@ -65,10 +65,11 @@ export default class Model {
 
             }
         ];
-        this.firstCardId = 0;
-        this.secondCardId = 0;
+        this.firstCardId = '';
+        this.secondCardId = '';
         this.firstCard;
     }
+    
     sortArray() {
         //создаем копию массива 
         const cloneCardArray = [...this.cardArray];
@@ -93,21 +94,22 @@ export default class Model {
             }
         })
     }
+
     getMatch() {
         const gameBox = document.querySelector('.game__box');
-        
+
         gameBox.addEventListener('click', function (event) {
             console.log(`first ${this.firstCard} second ${event.target.parentElement.classList}`);
 
-            if (this.firstCardId){
-                if(this.firstCardId === this.secondCardId){
+            if (this.firstCardId) {
+                if (this.firstCardId === this.secondCardId) {
                     console.log('f')
 
                     this.firstCard.removeAttribute('date-name');
                     event.target.parentElement.classList.removeAttribute('date-name');
-                }else{
-                    this.firstCardId = 0;
-                    this.secondCardId = 0;
+                } else {
+                    this.firstCardId = '';
+                    this.secondCardId = '';
                     this.firstCard.remove('is-flipped');
                     event.target.parentElement.classList.remove('is-flipped')
                 }
@@ -117,6 +119,7 @@ export default class Model {
             this.firstCard = event.target.parentElement.classList;
         });
     }
+
     getMoves() {
         let moves = document.querySelector('.controls__moves-current');
         let cards = document.querySelectorAll('.card');
@@ -129,6 +132,7 @@ export default class Model {
             })
         })
     }
+
     getTime() {
         let time = document.querySelector('.controls__timer-current');
         let secondsGame = 0;
