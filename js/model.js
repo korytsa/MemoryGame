@@ -65,9 +65,9 @@ export default class Model {
 
             }
         ];
-        this.firstCardId = 0;
-        this.secondCardId = 0;
-        this.firstCard;
+        this.firstCardId = null;
+        this.secondCardId = null;
+        this.timer = null;
     }
     sortArray() {
         //создаем копию массива 
@@ -93,28 +93,68 @@ export default class Model {
             }
         })
     }
-    getMatch() {
+    getMatch(firstCardId) {
+        let arrId = Array.from(document.querySelectorAll(`[data-id="${firstCardId}"]`));
+        arrId.forEach((item) => {
+            item.removeAttribute('data-name')
+            // console.log(item.dataset)
+        })
+        this.firstCardId = null;
+        this.secondCardId = null;
+    }
+    getUnmatch() {
+        this.timer = setTimeout(() => {
+            console.log('unmatch')
+
+            let firstCard = document.querySelector(`[data-id="${this.firstCardId}"]`);
+            let secondCard = document.querySelector(`[data-id="${this.secondCardId}"]`);
+            console.log(firstCard, secondCard)
+
+            let arrCard = [firstCard, secondCard]
+
+            arrCard.forEach((item) => {
+                item.classList.remove('is-flipped')
+                console.log(item.classList)
+            })
+
+            this.firstCardId = null;
+            this.secondCardId = null;
+        }, 2000)
+    }
+    flipTimer() {
+        if (this.timer) {
+            console.log('unmatch')
+
+            let elements = Array.from(document.querySelectorAll(`.card`));
+            elements.forEach((item) => {
+                item.classList.remove('is-flipped')
+                console.log(item.classList)
+            })
+
+            this.firstCardId = null;
+            this.secondCardId = null;
+
+            clearTimeout(this.timer);
+            this.timer = null;
+            return;
+        }
+    }
+    compareCard() {
         const gameBox = document.querySelector('.game__box');
-        
+
         gameBox.addEventListener('click', function (event) {
-            console.log(`first ${this.firstCard} second ${event.target.parentElement.classList}`);
+            // this.flipTimer();
 
-            if (this.firstCardId){
-                if(this.firstCardId === this.secondCardId){
-                    console.log('f')
-
-                    this.firstCard.removeAttribute('date-name');
-                    event.target.parentElement.classList.removeAttribute('date-name');
-                }else{
-                    this.firstCardId = 0;
-                    this.secondCardId = 0;
-                    this.firstCard.remove('is-flipped');
-                    event.target.parentElement.classList.remove('is-flipped')
+            if (!this.firstCardId) {
+                this.firstCardId = event.target.parentElement.dataset.id;
+            } else {
+                this.secondCardId = event.target.parentElement.dataset.id;
+                if (this.firstCardId === this.secondCardId) {
+                    this.getMatch(this.firstCardId);
+                } else {
+                    this.getUnmatch();
                 }
-                return this.secondCardId = event.target.parentElement.dataset.id;
             }
-            this.firstCardId = event.target.parentElement.dataset.id;
-            this.firstCard = event.target.parentElement.classList;
         });
     }
     getMoves() {
