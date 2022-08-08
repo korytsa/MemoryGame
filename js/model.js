@@ -68,6 +68,7 @@ export default class Model {
         this.firstCardId = null;
         this.secondCardId = null;
         this.timer = null;
+        this.clicked = false;
     }
     sortArray() {
         //создаем копию массива 
@@ -82,80 +83,87 @@ export default class Model {
         });
     }
 
-    toggleCard() {
+    flipCard() {
         const gameBox = document.querySelector('.game__box');
 
-        gameBox.addEventListener('click', function (event) {
+        gameBox.addEventListener('click', (event) => {
+            if (event.target.parentElement.classList.contains('is-flipped')) {
+                return
+            }
+
             let e = event.target.parentElement;
             if (e.dataset.name === "card") {
                 e.classList.toggle('is-flipped');
-                // console.log(e.classList)
             }
+
+            this.compareCard(event);
         })
     }
-    getMatch(firstCardId) {
-        let arrId = Array.from(document.querySelectorAll(`[data-id="${firstCardId}"]`));
+    getMatch() {
+        console.log('match')
+        let arrId = Array.from(document.querySelectorAll(`[data-id="${this.firstCardId}"]`));
         arrId.forEach((item) => {
             item.removeAttribute('data-name')
-            // console.log(item.dataset)
         })
         this.firstCardId = null;
         this.secondCardId = null;
-    }
-    getUnmatch() {
-        this.timer = setTimeout(() => {
-            console.log('unmatch')
-
-            let firstCard = document.querySelector(`[data-id="${this.firstCardId}"]`);
-            let secondCard = document.querySelector(`[data-id="${this.secondCardId}"]`);
-            console.log(firstCard, secondCard)
-
-            let arrCard = [firstCard, secondCard]
-
-            arrCard.forEach((item) => {
-                item.classList.remove('is-flipped')
-                console.log(item.classList)
-            })
-
-            this.firstCardId = null;
-            this.secondCardId = null;
-        }, 2000)
-    }
-    flipTimer() {
         if (this.timer) {
-            console.log('unmatch')
-
-            let elements = Array.from(document.querySelectorAll(`.card`));
-            elements.forEach((item) => {
-                item.classList.remove('is-flipped')
-                console.log(item.classList)
-            })
-
-            this.firstCardId = null;
-            this.secondCardId = null;
-
-            clearTimeout(this.timer);
-            this.timer = null;
-            return;
+            return this.flipTimer();
         }
     }
-    compareCard() {
-        const gameBox = document.querySelector('.game__box');
+    getUnmatch() {
+        console.log('unmatch')
+        this.timer = setTimeout(() => {
+            let firstCard = document.querySelector(`[data-id="${this.firstCardId}"]`);
+            let secondCard = document.querySelector(`[data-id="${this.secondCardId}"]`);
+            console.log(`first ${firstCard.classList} second ${secondCard.classList}`)
 
-        gameBox.addEventListener('click', function (event) {
-            // this.flipTimer();
+            firstCard.classList.remove('is-flipped');
+            secondCard.classList.remove('is-flipped');
 
-            if (!this.firstCardId) {
-                this.firstCardId = event.target.parentElement.dataset.id;
-            } else {
-                this.secondCardId = event.target.parentElement.dataset.id;
-                if (this.firstCardId === this.secondCardId) {
-                    this.getMatch(this.firstCardId);
-                } else {
-                    this.getUnmatch();
-                }
+            
+
+            this.firstCardId = null;
+            this.secondCardId = null;
+        }, 1500)     
+    }
+
+
+
+    flipTimer() {
+        let elements = Array.from(document.querySelectorAll(`.card`));
+        elements.forEach((item) => {
+            if (item.dataset.name) {
+                item.classList.remove('is-flipped')
             }
-        });
+        })
+
+        if (this.timer) {
+            clearTimeout(this.timer);
+            this.timer = null;
+        }
+
+        this.firstCardId = null;
+            this.secondCardId = null;
+    }
+    compareCard(event) {
+        if(!this.firstCardId) {
+            return this.firstCardId = event.target.parentElement.dataset.id;
+        }
+
+        if(!this.secondCardId) {
+            this.secondCardId = event.target.parentElement.dataset.id;
+            if (this.firstCardId === this.secondCardId) {
+                this.getMatch();
+            } else {
+                this.getUnmatch();
+            }
+            return;
+        }
+
+
+            this.flipTimer();
+       
     }
     getMoves() {
         let moves = document.querySelector('.controls__moves-current');
