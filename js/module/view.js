@@ -17,6 +17,7 @@ export default class View {
             card.classList.add('card');
             card.setAttribute('data-name', 'card');
             card.setAttribute('data-id', item.id);
+            card.setAttribute('data-value', Math.floor(Math.random() * 1000))
             this.gameBox.appendChild(card).innerHTML = `
                            <img class="card__face card__face--front" src="${imgBack}">
                            <img class="card__face card__face--back" src="${img}">
