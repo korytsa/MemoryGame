@@ -162,16 +162,29 @@ export default class Model {
             time.textContent = `${minutesGame}:${secondsGame}`;
         }, 1000);
     }
-    popUp(){
-        const gameBox = document.querySelector('.game__box');
-        const arrCardsIsFlipped = [];
-        Array.from(gameBox.children).map((child) => {
-            if (child.classList.contains('is-flipped')){
-                arrCardsIsFlipped.push(child)
+    popUp() {
+        let popupBg = document.querySelector('.popup__bg');
+        let popup = document.querySelector('.popup');
+        let closePopupButton = document.querySelector('.close-popup');
+
+        openPopupButtons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                popupBg.classList.add('active');
+                popup.classList.add('active');
+            })
+        });
+
+        closePopupButton.addEventListener('click', () => {
+            popupBg.classList.remove('active');
+            popup.classList.remove('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (e.target === popupBg) {
+                popupBg.classList.remove('active');
+                popup.classList.remove('active');
             }
-        })
-        if (arrCardsIsFlipped.length === 16){
-            console.log('here')
-        }
+        });
     }
 }
