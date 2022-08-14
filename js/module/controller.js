@@ -6,6 +6,8 @@ export default class Controller {
     init() {
         this.view.gameplay(this.view.gameBoard(this.model.sortArray()), this.model.getMoves(), this.model.getTime());
         this.model.flipCard();
+        this.model.newGame();
+        this.model.tableWithResults();
         // this.model.compareCard();
         // this.model.validation();
         // this.model.getName();
