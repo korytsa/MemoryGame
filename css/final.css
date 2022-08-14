@@ -84,3 +84,12 @@ table.collapsed {
   transform: scale(1.03);
 }
   
+
+@media (max-width: 480px) {
+  table th {
+    font-size: 22px;
+  }
+  table td {
+   font-size: 20px;
+  }
+}

@@ -143,9 +143,11 @@ export default class Model {
         cards.forEach((card) => {
             card.addEventListener('click', function () {
                 moves.innerText = count;
-                count++;
+                // count++;
+                localStorage.setItem('moves', count++);
             })
         })
+        
     }
 
     getTime() {
@@ -159,7 +161,8 @@ export default class Model {
                 minutesGame < 9 ? minutesGame = `0${++minutesGame}` : minutesGame = `${++minutesGame}`;
                 secondsGame = `0${0}`;
             }
-            time.textContent = `${minutesGame}:${secondsGame}`;
+            localStorage.setItem('time', time.textContent = `${minutesGame}:${secondsGame}`);
+            // time.textContent = `${minutesGame}:${secondsGame}`;
         }, 1000);
     }
     textForPopUp() {
