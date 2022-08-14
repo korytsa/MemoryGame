@@ -51,4 +51,14 @@ table tr:last-child td:last-child {
 }
 
 table.collapsed {
-  border-collapse: collapse;}
+  border-collapse: collapse;
+}
+
+@media (max-width: 480px) {
+  table th {
+    font-size: 22px;
+  }
+  table td {
+   font-size: 20px;
+  }
+}
