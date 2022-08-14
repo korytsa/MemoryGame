@@ -157,7 +157,7 @@ h1 {
     cursor: pointer;
     transition: 0.6s;
 }
-.popupBtn:hover, .gameBtnsNew:hover, .gameBtnsResalts:hover{
+.popupBtn:hover, .gameBtnsNew:hover{
     background: radial-gradient( #2b0002 0%, #520204 100%);
     box-shadow: 0px 0px 10px 5px rgba(21, 2, 4, 0.9);
     transform: scale(1.03);
@@ -165,15 +165,15 @@ h1 {
 .gameBtns{
     display: flex;
 }
-.gameBtnsNew, .gameBtnsResalts{
+.gameBtnsNew{
     display: flex;
     background: radial-gradient( #330002 0%, #700306 100%);
     box-shadow: 0px 0px 10px 3px rgba(55, 5, 10, 0.9);
     background: radial-gradient(89.19% 192.84% at 50% 100%, #330002 0%, #700306 100%);
     border: none;
     outline: none;
-    font-size: 20px;
-    padding: 3% 10%;
+    font-size: 25px;
+    padding: 3% 15%;
     border-radius: 36px;
     cursor: pointer;
     transition: 0.6s;

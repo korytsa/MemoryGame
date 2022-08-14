@@ -8,3 +8,4 @@ player.innerHTML = localStorage.getItem('player');
 moves.innerHTML = localStorage.getItem('moves');
 time.innerHTML = localStorage.getItem('time');
 
+
