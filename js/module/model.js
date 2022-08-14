@@ -174,10 +174,13 @@ export default class Model {
         const text = document.createElement('div');
         const title = document.createElement('h2');
         const mainText = document.createElement('p');
+        const playAgain = document.createElement('button');
 
         text.classList.add('popupText');
         title.classList.add('popupTitle');
         mainText.classList.add('popupMainText');
+        playAgain.classList.add('popupBtn');
+        playAgain.classList.add('playAgain');
 
         title.textContent = `Good job, ${nameUser.textContent}!`;
         mainText.innerHTML = `
@@ -185,32 +188,14 @@ export default class Model {
                 <p>moves: ${moves.textContent}</p> 
                 time: ${time.textContent}
             `;
+        playAgain.textContent = 'Play again';
 
         text.appendChild(title);
         text.appendChild(mainText);
+        text.appendChild(playAgain)
         popup.appendChild(text)
-        this.popUpButtons();
     }
-    popUpButtons() {
-        const text = document.querySelector('.popupText');
-
-        const tableBtns = document.createElement('div');
-        const playAgain = document.createElement('button');
-        const tableResults = document.createElement('button');
-
-        tableBtns.classList.add('popupTableBtns');
-        playAgain.classList.add('popupBtn');
-        playAgain.classList.add('playAgain');
-        tableResults.classList.add('popupBtn');
-        tableResults.classList.add('tableResults');
-
-        playAgain.textContent = 'Play again';
-        tableResults.textContent = 'Results';
-
-        tableBtns.appendChild(playAgain);
-        tableBtns.appendChild(tableResults);
-        text.appendChild(tableBtns)
-    }
+    
     popUp() {
         let popupBg = document.querySelector('.popup__bg');
         let popup = document.querySelector('.popup');
@@ -228,7 +213,6 @@ export default class Model {
             popup.classList.add('active');
             this.textForPopUp();
             this.newGame();
-            this.tableWithResults();
         }
 
         closePopupButton.addEventListener('click', () => {
@@ -244,13 +228,11 @@ export default class Model {
         });
     }
     newGame() {
-        document.querySelector('.playAgain').addEventListener('click', () => {
-            window.location = "./game.html";
-        })
-    }
-    tableWithResults(){
-        document.querySelector('.tableResults').addEventListener('click', () => {
-            window.location = "./final.html";
+        Array.from(document.querySelectorAll('.playAgain')).forEach((item) => {
+            item.addEventListener('click', () => {
+                console.log(111)
+                window.location = "./game.html";
+            })
         })
     }
 }
