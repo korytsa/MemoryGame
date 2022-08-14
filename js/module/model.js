@@ -124,6 +124,7 @@ export default class Model {
             this.firstCardId = null;
             this.secondCardId = null;
         }
+        this.popUp();
     }
 
     getUnmatch() {
@@ -160,5 +161,17 @@ export default class Model {
             }
             time.textContent = `${minutesGame}:${secondsGame}`;
         }, 1000);
+    }
+    popUp(){
+        const gameBox = document.querySelector('.game__box');
+        const arrCardsIsFlipped = [];
+        Array.from(gameBox.children).map((child) => {
+            if (child.classList.contains('is-flipped')){
+                arrCardsIsFlipped.push(child)
+            }
+        })
+        if (arrCardsIsFlipped.length === 16){
+            console.log('here')
+        }
     }
 }
