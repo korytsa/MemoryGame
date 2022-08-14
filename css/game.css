@@ -109,11 +109,11 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    padding: 25px;
+    padding: 35px;
     transition: 0.5s all;
     border-radius: 20px;
     background: radial-gradient(89.19% 192.84% at 50% 100%, #330002 0%, #700306 100%);
-    
+    box-shadow: 0px 0px 15px 2px rgba(89, 8, 16, 0.9);
 }
 
 .popup.active {
@@ -127,6 +127,58 @@ h1 {
     right: 10px;
     cursor: pointer;
     text-decoration: none;
+}
+.popupText, .popupMainText, .popupTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    line-height: 1.5em;
+    font-size: 1.3em;
+}
+.popupTableBtns{
+    display: flex;;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+.popupBtn{
+    display: flex;
+    background: radial-gradient( #330002 0%, #700306 100%);
+    box-shadow: 0px 0px 10px 3px rgba(55, 5, 10, 0.9);
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding: 2% 8%;
+    border-radius: 36px;
+    margin: 4% 3% 0% 3%;
+    cursor: pointer;
+    transition: 0.6s;
+}
+.popupBtn:hover, .gameBtnsNew:hover, .gameBtnsResalts:hover{
+    background: radial-gradient( #2b0002 0%, #520204 100%);
+    box-shadow: 0px 0px 10px 5px rgba(21, 2, 4, 0.9);
+    transform: scale(1.03);
+}
+.gameBtns{
+    display: flex;
+}
+.gameBtnsNew, .gameBtnsResalts{
+    display: flex;
+    background: radial-gradient( #330002 0%, #700306 100%);
+    box-shadow: 0px 0px 10px 3px rgba(55, 5, 10, 0.9);
+    background: radial-gradient(89.19% 192.84% at 50% 100%, #330002 0%, #700306 100%);
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding: 3% 10%;
+    border-radius: 36px;
+    cursor: pointer;
+    transition: 0.6s;
+    margin-left: 5%;
+    white-space: nowrap
 }
 
 @media (max-width: 1080px) {

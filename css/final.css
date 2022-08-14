@@ -1,3 +1,7 @@
+main{
+  display: flex;
+  flex-direction: column;
+}
 table {
   max-width: 1440px;
   margin: 0 auto;
@@ -53,6 +57,33 @@ table tr:last-child td:last-child {
 table.collapsed {
   border-collapse: collapse;
 }
+.gameBtns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gameBtnsNew, .gameBtnsResalts{
+  display: flex;
+  background: radial-gradient( #330002 0%, #700306 100%);
+  box-shadow: 0px 0px 10px 3px rgba(55, 5, 10, 0.9);
+  background: radial-gradient(89.19% 192.84% at 50% 100%, #330002 0%, #700306 100%);
+  border: none;
+  outline: none;
+  font-size: 24px;
+  padding: 3% 15%;
+  border-radius: 36px;
+  cursor: pointer;
+  transition: 0.6s;
+  margin-left: 5%;
+  margin-bottom: 6%;
+  white-space: nowrap
+}
+.gameBtnsNew:hover, .gameBtnsResalts:hover{
+  background: radial-gradient( #2b0002 0%, #520204 100%);
+  box-shadow: 0px 0px 10px 5px rgba(21, 2, 4, 0.9);
+  transform: scale(1.03);
+}
+  
 
 @media (max-width: 480px) {
   table th {
