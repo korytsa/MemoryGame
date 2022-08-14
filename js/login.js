@@ -2,7 +2,7 @@
 const form = document.querySelector(".form");
 const input = document.querySelector(".content_userName");
 const button = document.querySelector("#nickname");
-
+const randomNickname = document.querySelector('#randomUser');
 
 const validInput = ({
     target
@@ -11,22 +11,18 @@ const validInput = ({
         button.removeAttribute('disabled');
         return
     }
-    if (input.value !== '') {
-        button.removeAttribute('disabled');
-        return
-    }
-
+   
     button.setAttribute("disabled", "");
 };
 
-// function triggerInput() {
-//     var event = new Event('input', {
-//         'bubbles': true,
-//         'cancelable': true
-//     });
+function triggerInput() {
+    var event = new Event('input', {
+        'bubbles': true,
+        'cancelable': true
+    });
 
-//     input.dispatchEvent(event);
-// }
+    input.dispatchEvent(event);
+}
 
 input.addEventListener("input", validInput, false);
 
@@ -44,22 +40,13 @@ const loadUserName = async () => {
     const response = await fetch('https://randomuser.me/api/');
     const data = await response.json();
     const input = document.querySelector(".content_userName");
-    // const eventInput = new CustomEvent('change', {
-    //     bubbles: true
-    // });
-    // input.dispatchEvent(eventInput);
-    // const form = document.querySelector(".form");
-    // const eventForm = new Event('submit', {
-    //     bubbles: true
-    // });
-    // form.dispatchEvent(eventForm);
-    // const button = document.querySelector("#nickname");
-    // const eventButton = new Event('click', {
-    //     bubbles: true
-    // });
-    // button.dispatchEvent(eventButton);
-    
+
     input.value = data.results[0].name.last;
+    triggerInput();
+    if (input.value !== '') {
+        randomNickname.setAttribute('disabled', '');
+        return
+    } 
 }
 
 
