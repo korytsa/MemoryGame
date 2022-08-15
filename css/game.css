@@ -26,6 +26,13 @@ h1 {
     text-align: center;
 }
 
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 20px;
+}
+
 .game {
     padding: 55px 0;
 }
@@ -85,6 +92,7 @@ h1 {
 .card__face--back {
     transform: rotateY(180deg);
 }
+
 .popup__bg {
     position: fixed;
     top: 0;
@@ -96,6 +104,7 @@ h1 {
     pointer-events: none;
     transition: 0.5s all;
     cursor: pointer;
+    text-align: center;
 }
 
 .popup__bg.active {
@@ -105,6 +114,8 @@ h1 {
 }
 
 .popup {
+    max-width: 500px;
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -128,7 +139,10 @@ h1 {
     cursor: pointer;
     text-decoration: none;
 }
-.popupText, .popupMainText, .popupTitle{
+
+.popupText,
+.popupMainText,
+.popupTitle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,17 +150,18 @@ h1 {
     line-height: 1.5em;
     font-size: 1.3em;
 }
-.popupTableBtns{
-    display: flex;;
+
+.popupTableBtns {
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100%;
-
 }
-.popupBtn{
+
+.popupBtn {
     display: flex;
-    background: radial-gradient( #330002 0%, #700306 100%);
+    background: radial-gradient(#330002 0%, #700306 100%);
     box-shadow: 0px 0px 10px 3px rgba(55, 5, 10, 0.9);
     border: none;
     outline: none;
@@ -157,27 +172,26 @@ h1 {
     cursor: pointer;
     transition: 0.6s;
 }
-.popupBtn:hover, .gameBtnsNew:hover{
-    background: radial-gradient( #2b0002 0%, #520204 100%);
+
+.popupBtn:hover,
+.gameBtnsNew:hover {
+    background: radial-gradient(#2b0002 0%, #520204 100%);
     box-shadow: 0px 0px 10px 5px rgba(21, 2, 4, 0.9);
     transform: scale(1.03);
 }
-.gameBtns{
-    display: flex;
-}
-.gameBtnsNew{
-    display: flex;
-    background: radial-gradient( #330002 0%, #700306 100%);
+
+.gameBtnsNew {
+    width: 200px;
+    background: radial-gradient(#330002 0%, #700306 100%);
     box-shadow: 0px 0px 10px 3px rgba(55, 5, 10, 0.9);
     background: radial-gradient(89.19% 192.84% at 50% 100%, #330002 0%, #700306 100%);
     border: none;
     outline: none;
     font-size: 25px;
-    padding: 3% 15%;
+    padding: 3%;
     border-radius: 36px;
     cursor: pointer;
     transition: 0.6s;
-    margin-left: 5%;
     white-space: nowrap
 }
 
@@ -220,6 +234,14 @@ h1 {
 }
 
 @media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .header__inner {
+        padding: 0 10px;
+    }
+
     .controls__container {
         padding: 0 10px;
     }
@@ -245,4 +267,18 @@ h1 {
         height: 65px;
     }
 
+    .popup {
+        max-width: 280px;
+    }
+
+    .popupText,
+    .popupMainText,
+    .popupTitle {
+        font-size: 1.1em;
+    }
+
+    .gameBtnsNew {
+        width: 100px;
+        font-size: 16px;
+    }
 }
