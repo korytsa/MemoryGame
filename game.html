@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,45 +11,51 @@
     <link rel="stylesheet" href="./css/game.css">
     <script src="./js/app.js" type="module"></script>
 </head>
+
 <body>
     <header>
-        <h1>Memory Game</h1>
+        <div class="header__inner">
+            <a href="./index.html">
+                <h1>Memory Game</h1>
+            </a>
+            <div class="gameBtns">
+                <button class="gameBtnsNew playAgain">New game</button>
+            </div>
+        </div>
     </header>
     <main>
         <section class="game">
             <div class="controls__container">
                 <div class="controls">
                     <div class="controls__nickname">
-                        Nickname: 
-                        <span class="controls__nickname-userName">...</span> 
+                        Nickname:
+                        <span class="controls__nickname-userName">...</span>
                     </div>
                     <div class="controls__moves">
-                        Moves: 
+                        Moves:
                         <span class="controls__moves-current">0</span>
                     </div>
                     <div class="controls__timer">
                         Time:
                         <span class="controls__timer-current">00:00</span>
                     </div>
-                    <div class="gameBtns">
-                        <button class="gameBtnsNew playAgain">New game</button>
-                    </div>
                 </div>
             </div>
             <div class="game__container">
                 <div class="game__box"></div>
-                
+
             </div>
         </section>
-        <div class="popup__bg"> 
+        <div class="popup__bg">
             <div class="popup">
                 <a href="#" class="close-popup">X</a>
             </div>
-        </div>  
+        </div>
     </main>
     <footer>
         <p>created by Anni, Pavel, Alexander, Evgeniy</p>
     </footer>
-    
+
 </body>
+
 </html>
